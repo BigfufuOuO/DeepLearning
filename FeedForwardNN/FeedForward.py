@@ -5,15 +5,22 @@ import matplotlib.pyplot as plt
 
 
 class Feed_Forward_Network(nn.Module):
-    def __init__(self, input_size, hidden_size, output_size):
+    def __init__(self, input_size, hidden_size, output_size, num_hidden_layers):
         super(Feed_Forward_Network, self).__init__()
-        self.fully_connected1 = nn.Linear(input_size, hidden_size, dtype=torch.float64)
+        # self.fully_connected1 = nn.Linear(input_size, hidden_size, dtype=torch.float64)
         self.relu = nn.ReLU()
-        self.fully_connected2 = nn.Linear(hidden_size, output_size, dtype=torch.float64)
+
+        self.hidden_layers = nn.ModuleList()
+        self.hidden_layers.append(nn.Linear(input_size, hidden_size))
+        for _ in range(num_hidden_layers - 1):
+            self.hidden_layers.append(nn.Linear(hidden_size, hidden_size))
+        self.fully_connected2 = nn.Linear(hidden_size, output_size)
 
     def forward(self, x):
-        out = self.fully_connected1(x)
-        out = self.relu(out)
+        # out = self.fully_connected1(x)
+        out = x
+        for layer in self.hidden_layers:
+            out = self.relu(layer(out))
         out = self.fully_connected2(out)
         return out
 

@@ -1,0 +1,32 @@
+***********************
+Model_N=200_Time=03252122:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0001, num_epoch=10000, batch_size=64:val_MSE_mean=0.003982736729085445
+***********************
+Model_N=200_Time=03252123:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0001, num_epoch=10000, batch_size=64:val_MSE_mean=0.10546691715717316
+***********************
+Model_N=200_Time=03252125:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0001, num_epoch=10000, batch_size=64:val_MSE_mean=0.10520664602518082
+***********************
+Model_N=200_Time=03252126:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0001, num_epoch=5000, batch_size=64:val_MSE_mean=0.22508864104747772
+***********************
+Model_N=200_Time=03252126:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0001, num_epoch=2000, batch_size=64:val_MSE_mean=0.3754885196685791
+***********************
+Model_N=200_Time=03252132:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=6,
+learning_rate=0.0001, num_epoch=15000, batch_size=64:val_MSE_mean=0.00366615760140121
+***********************
+Model_N=200_Time=03252143:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=10000, batch_size=64:val_MSE_mean=6.70186709612608e-05
+***********************
+Model_N=200_Time=03252144:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=10000, batch_size=64:val_MSE_mean=0.0014265018980950117
