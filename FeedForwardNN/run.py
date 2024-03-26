@@ -10,8 +10,8 @@ input_size = 1
 hidden_size = 64
 output_size = 1
 num_hidden_layers = 5
-leaning_rate = 0.001
-num_epoch = 5000
+leaning_rate = 0.0005
+num_epoch = 2000
 batch_size = 64
 
 model = Feed_Forward_Network(input_size, hidden_size, output_size, num_hidden_layers)

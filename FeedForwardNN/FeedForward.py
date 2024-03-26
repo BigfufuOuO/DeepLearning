@@ -33,7 +33,7 @@ def plot_fig(x_val, y_val, y_pred, output_file):
     plt.plot(x, y, label='True cure', color='black', alpha=0.3)
     plt.xlabel('X')
     plt.ylabel('Y')
-    plt.title('Original Samples vs Predicted Points')
+    plt.title(' Predicted Point and Origin curve')
     plt.legend()
     plt.grid(True)
     plt.savefig(output_file)

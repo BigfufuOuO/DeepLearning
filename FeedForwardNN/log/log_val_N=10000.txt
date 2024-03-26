@@ -1,0 +1,16 @@
+***********************
+Model_N=10000_Time=03261000:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=1000, batch_size=64:val_MSE_mean=0.0010292081606166903
+***********************
+Model_N=10000_Time=03261002:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0005, num_epoch=1000, batch_size=64:val_MSE_mean=0.00018502934563002782
+***********************
+Model_N=10000_Time=03261004:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0005, num_epoch=1500, batch_size=64:val_MSE_mean=0.00011136181683468749
+***********************
+Model_N=10000_Time=03261007:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0005, num_epoch=2000, batch_size=64:val_MSE_mean=7.501479512939113e-05

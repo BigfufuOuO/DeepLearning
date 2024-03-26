@@ -3,7 +3,7 @@ import torch
 from torch.utils.data import TensorDataset, DataLoader
 
 
-Num_SampleSize = 2000
+Num_SampleSize = 10000
 
 
 def Generate_dataset(Num_SampleSize):
