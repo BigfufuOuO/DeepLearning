@@ -30,3 +30,299 @@ learning_rate=0.001, num_epoch=10000, batch_size=64:val_MSE_mean=6.7018670961260
 Model_N=200_Time=03252144:
 input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
 learning_rate=0.001, num_epoch=10000, batch_size=64:val_MSE_mean=0.0014265018980950117
+***********************
+Model_N=200_Time=03311135:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=500, batch_size=64:val_MSE_mean=0.49293722716967264
+***********************
+Model_N=200_Time=03311137:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=500, batch_size=64:val_MSE_mean=0.38921064138412476
+***********************
+Model_N=200_Time=03311138:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=500, batch_size=64:val_MSE_mean=0.16777248680591583
+***********************
+Model_N=200_Time=03311140:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=500, batch_size=64:val_MSE_mean=0.38044866919517517
+***********************
+Model_N=200_Time=03311145:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=500, batch_size=64:val_MSE_mean=0.36887502670288086
+***********************
+Model_N=200_Time=03311155:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=500, batch_size=64:val_MSE_mean=0.3800863027572632
+***********************
+Model_N=200_Time=03311156:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=3,
+learning_rate=0.001, num_epoch=500, batch_size=64:val_MSE_mean=0.37944504618644714
+***********************
+Model_N=200_Time=03311158:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=3,
+learning_rate=0.001, num_epoch=500, batch_size=64:val_MSE_mean=0.384840190410614
+***********************
+Model_N=200_Time=03311159:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0005, num_epoch=300, batch_size=64:val_MSE_mean=0.3877253830432892
+***********************
+Model_N=200_Time=03311159:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0005, num_epoch=1000, batch_size=64:val_MSE_mean=0.380301833152771
+***********************
+Model_N=200_Time=03311202:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=10000, batch_size=64:val_MSE_mean=0.003885250072926283
+***********************
+Model_N=200_Time=03311203:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=2000, batch_size=64:val_MSE_mean=0.0038986182771623135
+***********************
+Model_N=200_Time=03311203:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0005, num_epoch=2000, batch_size=64:val_MSE_mean=0.35758519172668457
+***********************
+Model_N=200_Time=03311204:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=2000, batch_size=64:val_MSE_mean=0.011212963610887527
+***********************
+Model_N=200_Time=03311204:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=1000, batch_size=64:val_MSE_mean=0.07043304294347763
+***********************
+Model_N=200_Time=03311205:
+input_size=1, hidden_size=32, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=1000, batch_size=64:val_MSE_mean=0.1460736244916916
+***********************
+Model_N=200_Time=03311205:
+input_size=1, hidden_size=128, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=1000, batch_size=64:val_MSE_mean=0.0032131585758179426
+***********************
+Model_N=200_Time=03311208:
+input_size=1, hidden_size=128, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=1000, batch_size=64:val_MSE_mean=0.00010668734466889873
+***********************
+Model_N=200_Time=03311209:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=1000, batch_size=64:val_MSE_mean=0.002151048043742776
+***********************
+Model_N=200_Time=03311210:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=500, batch_size=128:val_MSE_mean=0.28675368428230286
+***********************
+Model_N=200_Time=03311211:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=500, batch_size=64:val_MSE_mean=0.00138655339833349
+***********************
+Model_N=200_Time=03311211:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=500, batch_size=256:val_MSE_mean=0.22493119537830353
+***********************
+Model_N=200_Time=03311211:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=500, batch_size=32:val_MSE_mean=0.165970116853714
+***********************
+Model_N=200_Time=03311211:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=500, batch_size=64:val_MSE_mean=0.20048482716083527
+***********************
+Model_N=200_Time=03311212:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=1000, batch_size=128:val_MSE_mean=0.0007078777998685837
+***********************
+Model_N=200_Time=03311212:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=256:val_MSE_mean=0.002825083676725626
+***********************
+Model_N=200_Time=03311213:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.003323778510093689
+***********************
+Model_N=200_Time=03311214:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=1,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.4156440794467926
+***********************
+Model_N=200_Time=03311214:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=7,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.0005120610585436225
+***********************
+Model_N=200_Time=03311311:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=1,
+learning_rate=0.002, num_epoch=300, batch_size=64:val_MSE_mean=0.4109552502632141
+***********************
+Model_N=200_Time=03311312:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=2,
+learning_rate=0.002, num_epoch=300, batch_size=64:val_MSE_mean=0.4075334966182709
+***********************
+Model_N=200_Time=03311312:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=3,
+learning_rate=0.002, num_epoch=300, batch_size=64:val_MSE_mean=0.4062008857727051
+***********************
+Model_N=200_Time=03311312:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=1,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.41612210869789124
+***********************
+Model_N=200_Time=03311313:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=1,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.41671687364578247
+***********************
+Model_N=200_Time=03311314:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=2,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.4049738347530365
+***********************
+Model_N=200_Time=03311314:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=3,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.3190271854400635
+***********************
+Model_N=200_Time=03311314:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=4,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.1581512838602066
+***********************
+Model_N=200_Time=03311314:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.012720217928290367
+***********************
+Model_N=200_Time=03311320:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=800, batch_size=64:val_MSE_mean=0.36558622121810913
+***********************
+Model_N=200_Time=03311320:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.004, num_epoch=800, batch_size=64:val_MSE_mean=0.0004780086746904999
+***********************
+Model_N=200_Time=03311320:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.008, num_epoch=800, batch_size=64:val_MSE_mean=0.003560862736776471
+***********************
+Model_N=200_Time=03311322:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.015, num_epoch=800, batch_size=64:val_MSE_mean=0.009005209431052208
+***********************
+Model_N=200_Time=03311326:
+input_size=1, hidden_size=16, output_size=1, num_hidden_layers=5,
+learning_rate=0.015, num_epoch=800, batch_size=64:val_MSE_mean=0.14510345458984375
+***********************
+Model_N=200_Time=03311326:
+input_size=1, hidden_size=32, output_size=1, num_hidden_layers=5,
+learning_rate=0.015, num_epoch=800, batch_size=64:val_MSE_mean=0.005908164195716381
+***********************
+Model_N=200_Time=03311326:
+input_size=1, hidden_size=16, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.24304907023906708
+***********************
+Model_N=200_Time=03311327:
+input_size=1, hidden_size=32, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.29024505615234375
+***********************
+Model_N=200_Time=03311328:
+input_size=1, hidden_size=48, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.185942143201828
+***********************
+Model_N=200_Time=03311328:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.14805062115192413
+***********************
+Model_N=200_Time=03311329:
+input_size=1, hidden_size=128, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=7.252068462548777e-05
+***********************
+Model_N=200_Time=03311330:
+input_size=1, hidden_size=96, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.006709620356559753
+***********************
+Model_N=200_Time=03311330:
+input_size=1, hidden_size=512, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.011015414260327816
+***********************
+Model_N=200_Time=03311333:
+input_size=1, hidden_size=1024, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.001400254899635911
+***********************
+Model_N=200_Time=03311336:
+input_size=1, hidden_size=128, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.025480326265096664
+***********************
+Model_N=200_Time=03311336:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.10091838985681534
+***********************
+Model_N=200_Time=03311336:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.010339642874896526
+***********************
+Model_N=200_Time=03311337:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=1000, batch_size=64:val_MSE_mean=0.13757535815238953
+***********************
+Model_N=200_Time=03311338:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=1000, batch_size=64:val_MSE_mean=0.2994672954082489
+***********************
+Model_N=200_Time=03311338:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=1500, batch_size=64:val_MSE_mean=0.05481898784637451
+***********************
+Model_N=200_Time=03311338:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=1500, batch_size=64:val_MSE_mean=0.01141949649900198
+***********************
+Model_N=200_Time=03311340:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.0847565084695816
+***********************
+Model_N=200_Time=03311344:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.00032642381847836077
+***********************
+Model_N=200_Time=03311344:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.380088746547699
+***********************
+Model_N=200_Time=03311348:
+input_size=1, hidden_size=96, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=1500, batch_size=64:val_MSE_mean=0.006722853984683752
+***********************
+Model_N=200_Time=03311349:
+input_size=1, hidden_size=96, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=1500, batch_size=64:val_MSE_mean=0.008546859957277775
+***********************
+Model_N=200_Time=03311349:
+input_size=1, hidden_size=96, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=1500, batch_size=64:val_MSE_mean=0.0009074088302440941
+***********************
+Model_N=200_Time=03311350:
+input_size=1, hidden_size=96, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=1500, batch_size=64:val_MSE_mean=0.0005858365329913795
+***********************
+Model_N=200_Time=03311351:
+input_size=1, hidden_size=96, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=600, batch_size=64:val_MSE_mean=0.0053794593550264835
+***********************
+Model_N=200_Time=03311351:
+input_size=1, hidden_size=96, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=600, batch_size=64:val_MSE_mean=0.19520799815654755
+***********************
+Model_N=200_Time=03311351:
+input_size=1, hidden_size=96, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=600, batch_size=64:val_MSE_mean=0.023303471505641937
+***********************
+Model_N=200_Time=03311352:
+input_size=1, hidden_size=96, output_size=1, num_hidden_layers=5,
+learning_rate=0.0015, num_epoch=600, batch_size=64:val_MSE_mean=0.0004499152419157326
+***********************
+Model_N=200_Time=03311354:
+input_size=1, hidden_size=128, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.01686008833348751
+***********************
+Model_N=200_Time=03311354:
+input_size=1, hidden_size=128, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.0023981714621186256
+***********************
+Model_N=200_Time=03311356:
+input_size=1, hidden_size=128, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.0031324964947998524
+***********************
+Model_N=200_Time=03311418:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=500, batch_size=64:val_MSE_mean=0.008630086667835712

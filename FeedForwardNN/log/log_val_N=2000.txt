@@ -2,3 +2,23 @@
 Model_N=2000_Time=03252154:
 input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
 learning_rate=0.001, num_epoch=5000, batch_size=64:val_MSE_mean=0.00018880601055570878
+***********************
+Model_N=2000_Time=03311210:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=500, batch_size=64:val_MSE_mean=0.0003759027677006088
+***********************
+Model_N=2000_Time=03311215:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.0011159748828504235
+***********************
+Model_N=2000_Time=03311216:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=300, batch_size=64:val_MSE_mean=0.0015785839641466737
+***********************
+Model_N=2000_Time=03311401:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=1000, batch_size=64:val_MSE_mean=0.0001931583828991279
+***********************
+Model_N=2000_Time=03311401:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=200, batch_size=64:val_MSE_mean=0.002439154835883528

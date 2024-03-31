@@ -2,3 +2,11 @@
 Model_N=200_Time=03252145:
 input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
 learning_rate=0.001, num_epoch=10000, batch_size=64:val_MSE_mean=0.002782870549708605
+***********************
+Model_N=200_Time=03311356:
+input_size=1, hidden_size=128, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.0025919615291059017
+***********************
+Model_N=200_Time=03311357:
+input_size=1, hidden_size=128, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=800, batch_size=64:val_MSE_mean=0.000580633815843612

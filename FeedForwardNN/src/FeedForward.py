@@ -9,6 +9,9 @@ class Feed_Forward_Network(nn.Module):
         super(Feed_Forward_Network, self).__init__()
         # self.fully_connected1 = nn.Linear(input_size, hidden_size, dtype=torch.float64)
         self.relu = nn.ReLU()
+        self.sigmoid = nn.Sigmoid()
+        self.tanh = nn.Tanh()
+        self.leakyrelu = nn.LeakyReLU()
 
         self.hidden_layers = nn.ModuleList()
         self.hidden_layers.append(nn.Linear(input_size, hidden_size))
@@ -20,11 +23,12 @@ class Feed_Forward_Network(nn.Module):
         # out = self.fully_connected1(x)
         out = x
         for layer in self.hidden_layers:
-            out = self.relu(layer(out))
+            #out = self.relu(layer(out))
+            out = self.sigmoid(layer(out))
         out = self.fully_connected2(out)
         return out
 
-def plot_fig(x_val, y_val, y_pred, output_file):
+def plot_fig_1(x_val, y_val, y_pred, output_file):
     plt.figure(figsize=(8, 6))
     plt.scatter(x_val, y_pred, label='Predited Points', color='blue', alpha=0.5)
     # plt.scatter(x_val, y_val, label='Original Points', color='red', alpha=0.5)
@@ -37,4 +41,15 @@ def plot_fig(x_val, y_val, y_pred, output_file):
     plt.legend()
     plt.grid(True)
     plt.savefig(output_file)
-    plt.show()
+    # plt.show()
+    
+def plot_fig_2(x_val, y_val, output_file):
+    plt.figure(figsize=(8, 6))
+    plt.plot(x_val, y_val, color='blue', alpha=0.5)
+    plt.xlabel('Num of epoch')
+    plt.ylabel('Loss(MSE)')
+    plt.title('MSE and epoch relation')
+    #plt.legend()
+    plt.grid(True)
+    plt.savefig(output_file)
+    # plt.show()

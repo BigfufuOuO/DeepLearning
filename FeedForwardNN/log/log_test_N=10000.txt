@@ -1,0 +1,8 @@
+***********************
+Model_N=10000_Time=03311409:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.002, num_epoch=50, batch_size=64:val_MSE_mean=0.04076110094320029
+***********************
+Model_N=10000_Time=03311412:
+input_size=1, hidden_size=64, output_size=1, num_hidden_layers=5,
+learning_rate=0.001, num_epoch=150, batch_size=64:val_MSE_mean=8.642371949463268e-05

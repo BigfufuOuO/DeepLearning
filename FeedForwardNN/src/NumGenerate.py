@@ -1,9 +1,11 @@
 import numpy
 import torch
+import os
 from torch.utils.data import TensorDataset, DataLoader
 
 
-Num_SampleSize = 2000
+Num_SampleSize = 200
+
 
 
 def Generate_dataset(Num_SampleSize):
@@ -22,20 +24,20 @@ def Generate_dataset(Num_SampleSize):
     x_val, y_val = x[val_set], y[val_set]
     x_test, y_test = x[test_set], y[test_set]
 
-    torch.save(x_train, f'FeedForwardNN/data/data_x_train_N={Num_SampleSize}.pt')
-    torch.save(y_train, f'FeedForwardNN/data/data_y_train_N={Num_SampleSize}.pt')
-    torch.save(x_val, f'FeedForwardNN/data/data_x_val_N={Num_SampleSize}.pt')
-    torch.save(y_val, f'FeedForwardNN/data/data_y_val_N={Num_SampleSize}.pt')
-    torch.save(x_test, f'FeedForwardNN/data/data_x_test_N={Num_SampleSize}.pt')
-    torch.save(y_test, f'FeedForwardNN/data/data_y_test_N={Num_SampleSize}.pt')
+    torch.save(x_train, f'src/data/data_x_train_N={Num_SampleSize}.pt')
+    torch.save(y_train, f'src/data/data_y_train_N={Num_SampleSize}.pt')
+    torch.save(x_val, f'src/data/data_x_val_N={Num_SampleSize}.pt')
+    torch.save(y_val, f'src/data/data_y_val_N={Num_SampleSize}.pt')
+    torch.save(x_test, f'src/data/data_x_test_N={Num_SampleSize}.pt')
+    torch.save(y_test, f'src/data/data_y_test_N={Num_SampleSize}.pt')
 
 def Data_Process(Num_SampleSize, setting_batch_size):
-    x_train = torch.load(f'FeedForwardNN/data/data_x_train_N={Num_SampleSize}.pt')
-    y_train = torch.load(f'FeedForwardNN/data/data_y_train_N={Num_SampleSize}.pt')
-    x_val = torch.load(f'FeedForwardNN/data/data_x_val_N={Num_SampleSize}.pt')
-    y_val = torch.load(f'FeedForwardNN/data/data_y_val_N={Num_SampleSize}.pt')
-    x_test = torch.load(f'FeedForwardNN/data/data_x_test_N={Num_SampleSize}.pt')
-    y_test = torch.load(f'FeedForwardNN/data/data_y_test_N={Num_SampleSize}.pt')
+    x_train = torch.load(f'src/data/data_x_train_N={Num_SampleSize}.pt')
+    y_train = torch.load(f'src/data/data_y_train_N={Num_SampleSize}.pt')
+    x_val = torch.load(f'src/data/data_x_val_N={Num_SampleSize}.pt')
+    y_val = torch.load(f'src/data/data_y_val_N={Num_SampleSize}.pt')
+    x_test = torch.load(f'src/data/data_x_test_N={Num_SampleSize}.pt')
+    y_test = torch.load(f'src/data/data_y_test_N={Num_SampleSize}.pt')
     print(x_train.dtype)
 
     # 转化为Dataset
@@ -51,4 +53,7 @@ def Data_Process(Num_SampleSize, setting_batch_size):
     return train_load, val_load, test_load
 
 if __name__ == "__main__":
+    data = "src/data"
+    if not os.path.exists(data):
+        os.makedirs(data)
     Generate_dataset(Num_SampleSize)
