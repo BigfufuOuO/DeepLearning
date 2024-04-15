@@ -8,7 +8,6 @@ transform = torchvision.transforms.Compose([torchvision.transforms.ToTensor(),
 
 def load_data(batch_size=64):
     # divide the data into train and validation set
-    
     raw_train_data = torchvision.datasets.CIFAR10(root=f'ConvolutionalNN\data', train=True, download=False, transform=transform)
     raw_test_data = torchvision.datasets.CIFAR10(root=f'ConvolutionalNN\data', train=False, download=False, transform=transform)
     
