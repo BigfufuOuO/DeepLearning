@@ -8,7 +8,6 @@ import numpy as np
 # Train the model
 # model = ImagesClassifierModel()
 # train_loader, val_loader, test_loader = load_data(batch_size=64)
-
 def train_model(model, optimizer, train_loader, val_loader, num_epochs, criterion=nn.CrossEntropyLoss()):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     print("Device:" + device.type)
@@ -18,10 +17,13 @@ def train_model(model, optimizer, train_loader, val_loader, num_epochs, criterio
     val_losses = []
     train_accuracy = []
     val_accuracy = []
+    true_label = []
+    predict_label = []
     # Training loop
     for epoch in range(num_epochs):
         # Set the model to training mode
-        # model.train()
+        model.train()
+        num_inaccurate_train = 0
         train_loss = []
         
         for inputs, labels in train_loader:
@@ -34,7 +36,9 @@ def train_model(model, optimizer, train_loader, val_loader, num_epochs, criterio
             
             # Forward pass
             output = model(inputs)
-            train_accurate = model.accuracy(labels, output)
+            _, predicted = torch.max(output, 1)
+            train_inaccurate = model.inaccuracy(labels, predicted)
+            num_inaccurate_train += train_inaccurate
             loss = criterion(output, labels)
             
             loss.backward()
@@ -45,6 +49,7 @@ def train_model(model, optimizer, train_loader, val_loader, num_epochs, criterio
         
         with torch.no_grad():
             # Set the model to evaluation mode
+            num_inaccurate_val = 0
             model.eval()
             for input, labels in val_loader:
                 val_loss = []
@@ -52,17 +57,24 @@ def train_model(model, optimizer, train_loader, val_loader, num_epochs, criterio
                 labels = labels.to(device)
                 
                 output = model(input)
-                val_accurate = model.accuracy(labels, output)
+                _, predicted = torch.max(output, 1)
+                val_inaccurate = model.inaccuracy(labels, predicted)
+                num_inaccurate_val += val_inaccurate
+                
                 loss = criterion(output, labels)
                 
                 val_loss.append(loss.item())
+                for i in range(len(predicted)):
+                    predict_label.append(predicted[i].item())
+                for i in range(len(labels)):
+                    true_label.append(labels[i].item())
             val_losses_mean = np.mean(val_loss)
             val_losses.append(val_losses_mean)
-            val_accuracy.append(val_accurate)
+            val_accuracy.append(1 - num_inaccurate_val / len(val_loader.dataset))
 
         train_losses_mean = np.mean(train_loss)
         train_losses.append(train_losses_mean)
-        train_accuracy.append(train_accurate)
+        train_accuracy.append(1 - num_inaccurate_train / len(train_loader.dataset))
     
-    return train_losses, val_losses, train_accuracy, val_accuracy
+    return train_losses, val_losses, train_accuracy, val_accuracy, true_label, predict_label
             

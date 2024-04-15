@@ -28,4 +28,6 @@ def load_data(batch_size=64):
     
     return train_loader, val_loader, test_loader
 
+
+
         
