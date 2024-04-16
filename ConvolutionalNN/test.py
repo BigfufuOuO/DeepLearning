@@ -43,6 +43,7 @@ with torch.no_grad():
     test_accuracy = 1 - num_inaccurate_test / len(test_loader.dataset)
     
 ploter.plot_acc_matrix(true_label, predicted_label, 'test')
+ploter.plot_test_images(test_loader, true_label, predicted_label)
 ploter.caculate_class_accuracy(true_label, predicted_label)
 total_acc = 0
 total_val = 0

@@ -2,6 +2,7 @@ import sys
 import time
 import matplotlib.pyplot as plt
 import torch
+import numpy as np
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
 labels = ['airplane', 'automobile', 'bird', 'cat', 'deer', 
@@ -58,6 +59,19 @@ class PlotsAndLogs:
         ax.set_ylabel('True Label')
         display.plot(xticks_rotation='vertical', ax=ax)
         plt.savefig(f'{self.fig_fileplace}/confusion_matrix_{mode}_{self.daytime}.png')
+        plt.show()
+        
+    def plot_test_images(self, testloader, true, predicted, W_grid=5, L_grid=5):
+        fig, axes = plt.subplots(L_grid, W_grid, figsize=(15, 3))
+        axes = axes.ravel()
+        inputs, _ = next(iter(testloader))
+        for i in range(W_grid * L_grid):
+            index = torch.randint(0, len(inputs), (1,)).item()
+            image = inputs[index] / 2 + 0.5
+            npimg = image.numpy()
+            axes[i].imshow(np.transpose(npimg, (1, 2, 0)))
+            axes[i].set_title(f'{labels[true[index]]}({labels[predicted[index]]})', color='green' if true[index] == predicted[index] else 'red')
+            axes[i].axis('off')
         plt.show()
         
     def caculate_class_accuracy(self, true_label, predicted_label):
