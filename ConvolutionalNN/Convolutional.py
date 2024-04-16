@@ -12,32 +12,39 @@ class ImagesClassifierModel(nn.Module):
         self.network = nn.Sequential(
             nn.Conv2d(in_channels=3, out_channels=6, kernel_size=self.kenel_size, padding=self.padding),
             nn.ReLU(),
-            nn.Conv2d(in_channels=6, out_channels=12, kernel_size=self.kenel_size, padding=self.padding),
+            nn.BatchNorm2d(6),
+            nn.Conv2d(in_channels=6, out_channels=16, kernel_size=self.kenel_size, padding=self.padding),
             nn.ReLU(),
-            nn.MaxPool2d(2, 2), # 12 * 16 * 16
+            nn.BatchNorm2d(16),
+            nn.MaxPool2d(2, 2), # 16 * 16 * 16
             nn.Dropout(dropout),
             
-            nn.Conv2d(in_channels=12, out_channels=24, kernel_size=self.kenel_size, padding=self.padding),
+            nn.Conv2d(in_channels=16, out_channels=32, kernel_size=self.kenel_size, padding=self.padding),
             nn.ReLU(),
-            nn.Conv2d(in_channels=24, out_channels=32, kernel_size=self.kenel_size, padding=self.padding),
-            nn.ReLU(),
-            nn.MaxPool2d(2, 2), # 32 * 8 * 8
-            nn.Dropout(dropout),
-            
+            nn.BatchNorm2d(32),
             nn.Conv2d(in_channels=32, out_channels=64, kernel_size=self.kenel_size, padding=self.padding),
             nn.ReLU(),
-            nn.Conv2d(in_channels=64, out_channels=128, kernel_size=self.kenel_size, padding=self.padding),
-            nn.ReLU(),
-            nn.MaxPool2d(2, 2), # 128 * 4 * 4
+            nn.BatchNorm2d(64),
+            nn.MaxPool2d(2, 2), # 64 * 8 * 8
             nn.Dropout(dropout),
             
+            nn.Conv2d(in_channels=64, out_channels=128, kernel_size=self.kenel_size, padding=self.padding),
+            nn.ReLU(),
             nn.BatchNorm2d(128),
+            nn.Conv2d(in_channels=128, out_channels=256, kernel_size=self.kenel_size, padding=self.padding),
+            nn.ReLU(),
+            nn.BatchNorm2d(256),
+            nn.MaxPool2d(2, 2), # 256 * 4 * 4
+            nn.Dropout(dropout+0.1),
+            
+            #nn.BatchNorm2d(256),
             nn.Flatten(), # change the shape to 1D
-            nn.Linear(128 * 4 * 4, 1024),
+            nn.Linear(256 * 4 * 4, 1024),
             nn.ReLU(),
             nn.Linear(1024, 512),
             nn.ReLU(),
-            nn.Linear(512, 10)
+            nn.Dropout(dropout+0.1),
+            nn.Linear(512, 10),
         )
         
     def forward(self, x):
