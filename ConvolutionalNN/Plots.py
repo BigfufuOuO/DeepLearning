@@ -22,7 +22,7 @@ class PlotsAndLogs:
     def plot_loss_accuracy(self, num_epoch, train_losses, val_losses, train_acc, val_acc):
         plt.figure(figsize=(12, 12))
         epoch = range(1, num_epoch + 1) #array range from 1 to num_epoch
-        plt.subplot(4, 2, 1)
+        plt.subplot(2, 1, 1)
         plt.plot(epoch, train_losses, label='Training Loss', color='blue', alpha=0.5)
         plt.plot(epoch, val_losses, label='Validation Loss', color='orange', alpha=0.5)
         plt.xlabel('Epoch')
@@ -30,7 +30,7 @@ class PlotsAndLogs:
         plt.title('Training and Validation Loss')
         plt.legend()
         
-        plt.subplot(4, 2, 2)
+        plt.subplot(2, 1, 2)
         plt.plot(epoch, train_acc, label='Training Accuracy', color='blue', alpha=0.5)
         plt.plot(epoch, val_acc, label='Validation Accuracy', color='orange', alpha=0.5)
         plt.xlabel('Epoch')
@@ -74,8 +74,9 @@ class PlotsAndLogs:
             f.write(f'val_accuracies: {[f"{acc:.4f}" for acc in val_accuracies]}\n')
             total_acc = 0
             for label in labels:
-                accuracy = self.acc_table[labels.index(label)][labels.index(label)] / self.class_num[labels.index(label)]
-                f.write(f'{label}: {self.acc_table[labels.index(label)]}, accuracy: {accuracy:.4f}\n')
+                i = labels.index(label)
+                accuracy = self.acc_table[i][i] / self.class_num[i]
+                f.write(f'{label(self.class_num[i])}: {self.acc_table[i]}, accuracy: {accuracy:.4f}\n')
             f.write(f'Total acc: {total_acc / 10000}\n')
             f.write(f'Model network: {model.network}\n')
             f.write('------------------------------------\n')
