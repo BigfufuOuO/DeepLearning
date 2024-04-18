@@ -110,6 +110,9 @@ class PlotsAndLogs:
             f.write(f'Total acc: {total_acc / total_val}, Num of data: {total_val}\n')
             f.write(f'Model network: {model.network}\n')
             f.write('------------------------------------\n')
+            
+    def output_model_architecture(self, model):
+        print(f'Model network: {model.network}')
         
         
     

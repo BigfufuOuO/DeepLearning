@@ -48,7 +48,7 @@ class ImagesClassifierModel(nn.Module):
             nn.Linear(512, 10),
         )
         
-        self.network2 = nn.Sequential( # kernel = 5*5
+        """ self.network2 = nn.Sequential( # kernel = 5*5
             nn.Conv2d(in_channels=3, out_channels=6, kernel_size=self.kenel_size, padding=self.padding),
             nn.ReLU(),
             nn.BatchNorm2d(6),
@@ -80,7 +80,7 @@ class ImagesClassifierModel(nn.Module):
             nn.ReLU(),
             nn.Dropout(dropout+0.2),
             nn.Linear(256, 10),
-        )
+        ) """
         
     def forward(self, x):
         return self.network(x)
