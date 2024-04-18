@@ -1,6 +1,8 @@
 data/
+Model/model_8485.pth
+Model/model_8455.pth
 figs/*.png
 !figs/loss_accuracy_0416-2203.png
 !figs/loss_accuracy_0416-2112.png
 !figs/confusion_matrix_validation_0416-2230.png
-!Model/model_8485.pth
+!figs/loss_accuracy_0418-0931.png

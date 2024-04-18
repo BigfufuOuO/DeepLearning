@@ -13,7 +13,7 @@ criterion = torch.nn.CrossEntropyLoss()
 
 train_loader, val_loader, test_loader = load_data(batch_size=64)
 
-model.load_state_dict(torch.load(ploter.Model_fileplace + '/model_851.pth'))
+model.load_state_dict(torch.load(ploter.Model_fileplace + '/model_8578.pth'))
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = model.to(device)
 model.eval()

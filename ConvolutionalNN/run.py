@@ -5,16 +5,16 @@ from Model import train_model
 from Plots import PlotsAndLogs
 import time
 
-num_epochs = 40
+num_epochs = 50
 learning_rate = 0.001
 weight_decay = 0.001
 
-model = ImagesClassifierModel(kernel_size=3, padding=1, dropout=0.25)
+model = ImagesClassifierModel(kernel_size=3, padding=1, dropout=0.3)
 train_loader, val_loader, test_loader = load_data(batch_size=64)
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
 milestone = [5]
 # scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=milestone, gamma=0.1)
-scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5, 
+scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=8, 
                                                        threshold=0.01, threshold_mode='rel', cooldown=0, min_lr=0, eps=1e-08)
 ploter = PlotsAndLogs()
 
