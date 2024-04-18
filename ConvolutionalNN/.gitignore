@@ -1,6 +1,8 @@
 data/
 Model/model_8485.pth
 Model/model_8455.pth
+Model/model_8472.pth
+Model/model_8565.pth
 figs/*.png
 !figs/loss_accuracy_0416-2203.png
 !figs/loss_accuracy_0416-2112.png

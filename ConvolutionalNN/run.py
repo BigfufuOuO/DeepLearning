@@ -9,7 +9,7 @@ num_epochs = 50
 learning_rate = 0.001
 weight_decay = 0.001
 
-model = ImagesClassifierModel(kernel_size=3, padding=1, dropout=0.3)
+model = ImagesClassifierModel(kernel_size=3, padding=1, dropout=0.25)
 train_loader, val_loader, test_loader = load_data(batch_size=64)
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
 milestone = [5]
