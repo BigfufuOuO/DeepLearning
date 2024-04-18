@@ -3,3 +3,4 @@ figs/*.png
 !figs/loss_accuracy_0416-2203.png
 !figs/loss_accuracy_0416-2112.png
 !figs/confusion_matrix_validation_0416-2230.png
+!Model/model_8485.pth

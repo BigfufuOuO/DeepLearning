@@ -41,9 +41,10 @@ class ImagesClassifierModel(nn.Module):
             nn.Flatten(), # change the shape to 1D
             nn.Linear(256 * 4 * 4, 1024),
             nn.ReLU(),
+            nn.Dropout(dropout+0.1),
             nn.Linear(1024, 512),
             nn.ReLU(),
-            nn.Dropout(dropout+0.1),
+            nn.Dropout(dropout+0.2),
             nn.Linear(512, 10),
         )
         

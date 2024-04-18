@@ -5,7 +5,7 @@ from Model import train_model
 from Plots import PlotsAndLogs
 import time
 
-num_epochs = 30
+num_epochs = 40
 learning_rate = 0.001
 weight_decay = 0.001
 
