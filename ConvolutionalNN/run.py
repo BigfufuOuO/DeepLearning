@@ -4,12 +4,22 @@ from DataLoad import load_data
 from Model import train_model
 from Plots import PlotsAndLogs
 import time
+import os
 
-num_epochs = 50
+#check file directory
+if not os.path.exists('src/figs'):
+    os.makedirs('src/figs')
+if not os.path.exists('src/logs'):
+    os.makedirs('src/logs')
+if not os.path.exists('src/Model'):
+    os.makedirs('src/Model')
+
+
+num_epochs = 40
 learning_rate = 0.001
-weight_decay = 0.001
+weight_decay = 0.003
 
-model = ImagesClassifierModel(kernel_size=3, padding=1, dropout=0.25)
+model = ImagesClassifierModel(kernel_size=7, padding=3, dropout=0.3)
 train_loader, val_loader, test_loader = load_data(batch_size=64)
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
 milestone = [5]

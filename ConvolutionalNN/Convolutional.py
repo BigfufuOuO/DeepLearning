@@ -26,7 +26,7 @@ class ImagesClassifierModel(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(64),
             nn.MaxPool2d(2, 2), # 64 * 8 * 8
-            nn.Dropout(dropout),
+            nn.Dropout(dropout+0.1),
             
             nn.Conv2d(in_channels=64, out_channels=128, kernel_size=self.kenel_size, padding=self.padding),
             nn.ReLU(),
@@ -35,27 +35,27 @@ class ImagesClassifierModel(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(256),
             nn.MaxPool2d(2, 2), # 256 * 4 * 4
-            nn.Dropout(dropout+0.1),
+            nn.Dropout(dropout+0.2),
             
             #nn.BatchNorm2d(256),
             nn.Flatten(), # change the shape to 1D
             nn.Linear(256 * 4 * 4, 1024),
             nn.ReLU(),
-            nn.Dropout(dropout+0.1),
+            nn.Dropout(dropout+0.2),
             nn.Linear(1024, 512),
             nn.ReLU(),
-            nn.Dropout(dropout+0.2),
+            nn.Dropout(dropout+0.3),
             nn.Linear(512, 10),
         )
         
-        self.network2 = nn.Sequential( # kernel = 5*5
+        '''self.network2 = nn.Sequential( # kernel = 7*7
             nn.Conv2d(in_channels=3, out_channels=6, kernel_size=self.kenel_size, padding=self.padding),
             nn.ReLU(),
             nn.BatchNorm2d(6),
             nn.Conv2d(in_channels=6, out_channels=16, kernel_size=self.kenel_size, padding=self.padding),
             nn.ReLU(),
             nn.BatchNorm2d(16),
-            nn.MaxPool2d(2, 2), # 16 * 14 * 14
+            nn.MaxPool2d(2, 2), # 16 * 10 * 10
             nn.Dropout(dropout),
             
             nn.Conv2d(in_channels=16, out_channels=32, kernel_size=self.kenel_size, padding=self.padding),
@@ -65,7 +65,7 @@ class ImagesClassifierModel(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(64),
             nn.MaxPool2d(2, 2), # 64 * 5 * 5
-            nn.Dropout(dropout),
+            nn.Dropout(dropout+0.1),
             
             nn.Conv2d(in_channels=64, out_channels=128, kernel_size=self.kenel_size, padding=self.padding),
             nn.ReLU(),
@@ -80,7 +80,7 @@ class ImagesClassifierModel(nn.Module):
             nn.ReLU(),
             nn.Dropout(dropout+0.2),
             nn.Linear(256, 10),
-        )
+        )'''
         
     def forward(self, x):
         return self.network(x)
