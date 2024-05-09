@@ -117,6 +117,7 @@ class DataProcessor:
     def Transform_Data(self):
         Normalized_feature = self._data.features / self._data.features.sum(1, keepdims=True)
         tensor_feature = torch.from_numpy(Normalized_feature).to(device)
+        tensor_feature = tensor_feature.to(torch.float32)
         tensor_labels = torch.from_numpy(self._data.labels).to(device)
         
         tensor_train_mask = torch.from_numpy(self._data.train_mask).to(device)
@@ -128,13 +129,13 @@ class DataProcessor:
         # construct sparse matrix tensor
         indices = torch.from_numpy(np.vstack((Normalized_matrix_sparse.row, Normalized_matrix_sparse.col)).astype(np.int64))
         values = torch.from_numpy(Normalized_matrix_sparse.data.astype(np.float32))
-        tensor_matrix_sparse = torch.sparse.FloatTensor(indices, values, torch.Size(Normalized_matrix_sparse.shape)).to(device)
+        tensor_matrix_sparse = torch.sparse_coo_tensor(indices, values, Normalized_matrix_sparse.shape).to(device)
         
         return Data(tensor_matrix_sparse, self._data.Matrix_degree, tensor_feature, tensor_labels, \
                     tensor_train_mask, tensor_val_mask, tensor_test_mask)
         
         
 
-cora = DataProcessor('cora')
-cora.Transform_Data()
+# cora = DataProcessor('cora')
+# cora.Transform_Data()
 pass

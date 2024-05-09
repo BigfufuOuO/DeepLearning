@@ -8,6 +8,7 @@ class GCNNet(nn.Module):
         Input:
             input_dim: int, the dimension of input features
         '''
+        super(GCNNet, self).__init__()
         self.gcn1 = GraphConvolutioal(input_dim, 16)
         self.gcn2 = GraphConvolutioal(16, 7)
         
@@ -20,6 +21,6 @@ class GCNNet(nn.Module):
         Output:
             h: torch.Tensor, the output features. (classification result)
         '''
-        h = nn.ReLU(self.gcn1(features, matrix_sparse))
+        h = nn.functional.relu(self.gcn1(features, matrix_sparse))
         h = self.gcn2(h, matrix_sparse)
         return h

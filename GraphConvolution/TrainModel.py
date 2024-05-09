@@ -7,7 +7,7 @@ def validation_loss(model, criterion, dataset):
     model.eval()
     with torch.no_grad():
         output = model(dataset.features, dataset.Matrix_sparse)
-        loss = criterion(output[dataset.val_mask], dataset.labels[dataset.val_mask])
+        loss = criterion(output[dataset.val_mask], dataset.labels[dataset.val_mask].long())
     return loss
     
 def test_acc(model, mask, dataset):
@@ -28,13 +28,13 @@ def train_model(epochs, model, criterion, optimizer, dataset):
     
     # start training
     model.train()
-    for epoch in epochs:
+    for epoch in range(epochs):
         output = model(dataset.features, dataset.Matrix_sparse)
         # supervise training
         train_mask_output = output[dataset.train_mask]
         
         # calculate loss
-        train_loss = criterion(train_mask_output, dataset.labels[dataset.train_mask])
+        train_loss = criterion(train_mask_output, dataset.labels[dataset.train_mask].long())
         optimizer.zero_grad()
         train_loss.backward()
         optimizer.step()
@@ -51,5 +51,5 @@ def train_model(epochs, model, criterion, optimizer, dataset):
         array_val_acc.append(val_acc)
         
     # Output the result
-        
-    pass
+    recorder.Plot_loss(epochs, array_train_loss, array_val_loss, array_train_acc, array_val_acc)
+    

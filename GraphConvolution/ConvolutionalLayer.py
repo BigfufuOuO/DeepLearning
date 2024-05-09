@@ -15,6 +15,7 @@ class GraphConvolutioal(nn.Module):
             weight: torch.nn.Parameter, the weight matrix
             bias: torch.nn.Parameter, the bias vector
         '''
+        super(GraphConvolutioal, self).__init__()
         self.input_dims = input_dims
         self.output_dims = output_dims
         self.weight = nn.Parameter(torch.FloatTensor(input_dims, output_dims))
