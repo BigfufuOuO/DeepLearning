@@ -2,19 +2,21 @@ from Plots import PlotsAndLogs
 from Convolutional import ImagesClassifierModel
 import torch
 import numpy as np
-from DataLoad import load_data
+from GraphConvolution.DataLoad import load_data
 
 classes = ['airplane', 'automobile', 'bird', 'cat', 'deer', 
           'dog', 'frog', 'horse', 'ship', 'truck']
 
 model = ImagesClassifierModel(kernel_size=3, padding=1, dropout=0.25)
 ploter = PlotsAndLogs()
+#ploter.output_model_architecture(model)
 criterion = torch.nn.CrossEntropyLoss()
 
 train_loader, val_loader, test_loader = load_data(batch_size=64)
 
 model.load_state_dict(torch.load(ploter.Model_fileplace + '/model_8515.pth'))
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model.load_state_dict(torch.load(ploter.Model_fileplace + '/model_8578.pth', map_location=device))
 model = model.to(device)
 model.eval()
 

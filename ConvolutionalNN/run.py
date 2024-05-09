@@ -1,6 +1,6 @@
 import torch
 from Convolutional import ImagesClassifierModel
-from DataLoad import load_data
+from GraphConvolution.DataLoad import load_data
 from Model import train_model
 from Plots import PlotsAndLogs
 import time

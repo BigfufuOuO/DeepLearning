@@ -80,7 +80,7 @@ class ImagesClassifierModel(nn.Module):
             nn.ReLU(),
             nn.Dropout(dropout+0.2),
             nn.Linear(256, 10),
-        )'''
+        )
         
     def forward(self, x):
         return self.network(x)

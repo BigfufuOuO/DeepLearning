@@ -1,4 +1,4 @@
-from DataLoad import load_data
+from GraphConvolution.DataLoad import load_data
 import matplotlib.pyplot as plt
 import numpy as np
 
