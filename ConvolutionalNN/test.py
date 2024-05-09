@@ -2,7 +2,7 @@ from Plots import PlotsAndLogs
 from Convolutional import ImagesClassifierModel
 import torch
 import numpy as np
-from DataLoad import load_data
+from GraphConvolution.DataLoad import load_data
 
 classes = ['airplane', 'automobile', 'bird', 'cat', 'deer', 
           'dog', 'frog', 'horse', 'ship', 'truck']
