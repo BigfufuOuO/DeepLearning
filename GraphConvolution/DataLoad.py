@@ -79,7 +79,7 @@ class DataProcessor:
         
     def Seperate_dataset(self):
         # seperate to train, validation adn test set
-        num_train = (int) (self.num_codes * 0.3)
+        num_train = (int) (self.num_codes * 0.4)
         num_val = (int) (self.num_codes * 0.3)
         num_test = (int) (self.num_codes - num_train - num_val)
         
