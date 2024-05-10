@@ -10,7 +10,9 @@ class Recorder:
         self.log_path = os.path.join(current_path, 'logs')
         self.daytime = time.strftime('%m%d-%H%M')
     
-    def Plot_loss(self, epochs, array_train_loss, array_val_loss, array_train_acc, array_val_acc, origial_dataset_name):
+    def Plot_loss(self, epochs, array_train_loss, array_val_loss, 
+                  array_train_acc, array_val_acc, array_lr,
+                  origial_dataset_name):
         '''
         Input:
             loss_list: list, the list of loss
@@ -31,6 +33,13 @@ class Recorder:
         plt.xlabel('Epoch')
         plt.ylabel('Accuracy')
         plt.title('Training and Validation Accuracy')
+        plt.legend()
+        
+        plt.subplot(2, 2, 3)
+        plt.plot(epoch, array_lr, label='Learning Rate', color='blue', alpha=0.8)
+        plt.xlabel('Epoch')
+        plt.ylabel('Learning Rate')
+        plt.title('Learning Rate')
         plt.legend()
         
         plt.savefig(f'{self.fig_path}/{origial_dataset_name}_loss_acc_{self.daytime}.png')
@@ -71,6 +80,8 @@ class Recorder:
                 f.write(f'{array_val_acc[i]:.4f}, ')
                 if i % 10 == 9:
                     f.write(f'**Epoch: {i+1}\n')
+
+            f.write('Validation Accuracy Final: {:.4f}\n'.format(array_val_acc[-1]))
                     
     def Output_parameters(self, learning_rate, weight_decay, drop_rate, epochs, dataset_name):
         '''

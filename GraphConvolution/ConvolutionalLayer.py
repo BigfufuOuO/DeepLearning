@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+from torch_geometric.nn import PairNorm
 
 class GraphConvolutioal(nn.Module):
     def __init__(self, input_dims, output_dims, bias=False):
@@ -42,7 +43,8 @@ class GraphConvolutioal(nn.Module):
         Note:
             H(l+1) = A * H(l) * W(l) + b(l), where A is could be renormalized.
         '''
-        matrix_sparse = self.Drop_edge(drop_rate, matrix_sparse)
+        matrix_sparse = self.Drop_edge(drop_rate, matrix_sparse) # DropEdge
+        # features = self.Pair_Norm(features) # PairNorm
         output = torch.mm(features, self.weight) # H * W
         output = torch.sparse.mm(matrix_sparse, output) # A * H * W
         if self.bias is not None:
@@ -66,3 +68,16 @@ class GraphConvolutioal(nn.Module):
         edge_value[drop_index] = 0
         matrix_sparse = torch.sparse_coo_tensor(edge_index, edge_value, matrix_sparse.shape)
         return matrix_sparse
+
+    def Pair_Norm(self, features):
+        '''
+        Pair normalization.
+        Input:
+            features: torch.Tensor, the input features, shape: (num_nodes, input_dims)
+        Output:
+            Normalized features.
+        '''
+        features = PairNorm(scale_individually=True)(features)
+        return features
+        
+        
