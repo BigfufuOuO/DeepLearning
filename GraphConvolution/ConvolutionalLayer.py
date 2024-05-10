@@ -30,7 +30,7 @@ class GraphConvolutioal(nn.Module):
         if self.bias is not None:
             nn.init.zeros_(self.bias)
     
-    def forward(self, features, matrix_sparse):
+    def forward(self, features, matrix_sparse, drop_rate = 0.2):
         '''
         Input:
             features: torch.Tensor, the input features, shape: (num_nodes, input_dims)
@@ -42,8 +42,27 @@ class GraphConvolutioal(nn.Module):
         Note:
             H(l+1) = A * H(l) * W(l) + b(l), where A is could be renormalized.
         '''
+        matrix_sparse = self.Drop_edge(drop_rate, matrix_sparse)
         output = torch.mm(features, self.weight) # H * W
         output = torch.sparse.mm(matrix_sparse, output) # A * H * W
         if self.bias is not None:
             output = output + self.bias
         return output
+    
+    def Drop_edge(self, drop_rate, matrix_sparse):
+        '''
+        Input:
+            drop_rate: float, the rate of drop edge
+        
+        Output:
+            matrix_sparse: torch.Tensor, the sparse matrix of adjacency matrix, shape: (num_nodes, num_nodes)
+        '''
+        matrix_sparse = matrix_sparse.coalesce()
+        num_edges = matrix_sparse._nnz()
+        edge_index = matrix_sparse._indices()
+        edge_value = matrix_sparse._values()
+        drop_num = int(num_edges * drop_rate)
+        drop_index = torch.randint(0, num_edges, (drop_num,))
+        edge_value[drop_index] = 0
+        matrix_sparse = torch.sparse_coo_tensor(edge_index, edge_value, matrix_sparse.shape)
+        return matrix_sparse

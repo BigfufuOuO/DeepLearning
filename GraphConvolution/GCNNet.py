@@ -11,6 +11,9 @@ class GCNNet(nn.Module):
         super(GCNNet, self).__init__()
         self.gcn1 = GraphConvolutioal(input_dim, 16)
         self.gcn2 = GraphConvolutioal(16, 7)
+        # Define parameters
+        self.drop_rate = 0.2
+
         
     def forward(self, features, matrix_sparse):
         '''
@@ -21,6 +24,6 @@ class GCNNet(nn.Module):
         Output:
             h: torch.Tensor, the output features. (classification result)
         '''
-        h = nn.functional.relu(self.gcn1(features, matrix_sparse))
-        h = self.gcn2(h, matrix_sparse)
+        h = nn.functional.relu(self.gcn1(features, matrix_sparse, drop_rate=self.drop_rate))
+        h = self.gcn2(h, matrix_sparse, drop_rate=self.drop_rate)
         return h

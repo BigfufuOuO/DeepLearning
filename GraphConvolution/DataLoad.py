@@ -41,6 +41,7 @@ class DataProcessor:
         # extract feature and label
         features = raw_data_content.iloc[:, 1:-1].values
         labels = raw_data_content.iloc[:, -1].values
+        print("labels:", labels.shape)
         
         # convert labels to numbers
         labels_dict = {label: i for i, label in enumerate(np.unique(labels))}
@@ -90,12 +91,12 @@ class DataProcessor:
         index_test = index[num_train + num_val:]
         
         # generate vector
-        train_mask = np.zeros(self.num_codes, dtype=int)
-        val_mask = np.zeros(self.num_codes, dtype=int)
-        test_mask = np.zeros(self.num_codes, dtype=int)
-        train_mask[index_train] = 1
-        val_mask[index_val] = 1
-        test_mask[index_test] = 1
+        train_mask = np.zeros(self.num_codes, dtype=bool)
+        val_mask = np.zeros(self.num_codes, dtype=bool)
+        test_mask = np.zeros(self.num_codes, dtype=bool)
+        train_mask[index_train] = True
+        val_mask[index_val] = True
+        test_mask[index_test] = True
         
         return train_mask, val_mask, test_mask
         
@@ -119,6 +120,7 @@ class DataProcessor:
         tensor_feature = torch.from_numpy(Normalized_feature).to(device)
         tensor_feature = tensor_feature.to(torch.float32)
         tensor_labels = torch.from_numpy(self._data.labels).to(device)
+        print("tensor_labels:", tensor_labels.shape)
         
         tensor_train_mask = torch.from_numpy(self._data.train_mask).to(device)
         tensor_val_mask = torch.from_numpy(self._data.val_mask).to(device)

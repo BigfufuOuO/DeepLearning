@@ -8,7 +8,7 @@ def validation_loss(model, criterion, dataset):
     with torch.no_grad():
         output = model(dataset.features, dataset.Matrix_sparse)
         loss = criterion(output[dataset.val_mask], dataset.labels[dataset.val_mask].long())
-    return loss
+    return loss.cpu().numpy().item()
     
 def test_acc(model, mask, dataset):
     model.eval()
@@ -16,10 +16,14 @@ def test_acc(model, mask, dataset):
         output = model(dataset.features, dataset.Matrix_sparse)
         pred = output[mask].max(1)[1]
         acc = torch.eq(pred, dataset.labels[mask]).float().mean()
-    return acc
+    return acc.cpu().numpy().item()
     
     
-def train_model(epochs, model, criterion, optimizer, dataset):
+def train_model(epochs, model, criterion, optimizer, dataset, origial_dataset_name):
+    '''
+    Input:
+        dataset: torch tensor data.
+    '''
     recorder = Recorder()
     array_train_loss = []
     array_val_loss = []
@@ -34,9 +38,10 @@ def train_model(epochs, model, criterion, optimizer, dataset):
         train_mask_output = output[dataset.train_mask]
         
         # calculate loss
-        train_loss = criterion(train_mask_output, dataset.labels[dataset.train_mask].long())
+        loss = criterion(train_mask_output, dataset.labels[dataset.train_mask].long())
+        train_loss = loss.detach().cpu().numpy().item()
         optimizer.zero_grad()
-        train_loss.backward()
+        loss.backward()
         optimizer.step()
         
         # caculate accuracy
@@ -51,5 +56,6 @@ def train_model(epochs, model, criterion, optimizer, dataset):
         array_val_acc.append(val_acc)
         
     # Output the result
-    recorder.Plot_loss(epochs, array_train_loss, array_val_loss, array_train_acc, array_val_acc)
-    
+    recorder.Plot_loss(epochs, array_train_loss, array_val_loss, array_train_acc, array_val_acc, origial_dataset_name)
+    recorder.Output_logs(array_train_loss, array_val_loss, array_train_acc, array_val_acc, origial_dataset_name)
+    return model
