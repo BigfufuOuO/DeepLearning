@@ -12,7 +12,7 @@ class GCNNet(nn.Module):
         self.gcn1 = GraphConvolutioal(input_dim, 16)
         self.gcn2 = GraphConvolutioal(16, 7)
         # Define parameters
-        self.drop_rate = 0.5
+        self.drop_rate = 0.3
 
         
     def forward(self, features, matrix_sparse):

@@ -10,15 +10,15 @@ def Save_Model(model, acc_val_final, model_name):
     print(f'Validation accuracy: {acc_val_final:.4f}')
     # get the current path
     current_path = os.path.abspath(os.path.dirname(__file__))
-    model_path = os.path.join(current_path, 'model')
+    model_path = os.path.join(current_path, 'models')
     if model_name == 'cora':
         if acc_val_final > 0.8:
-            torch.save(model.state_dict(), f'{model_path}/GCNNet_{model_name}_acc{acc_val_final}.pth')
-            print(f'Model saved in {model_path}/GCNNet_{model_name}_acc{acc_val_final}.pth')
+            torch.save(model.state_dict(), f'{model_path}/GCNNet_{model_name}_acc{acc_val_final:.5f}.pth')
+            print(f'Model saved in {model_path}/GCNNet_{model_name}_acc{acc_val_final:.5f}.pth')
     elif model_name == 'citeseer':
         if acc_val_final > 0.7:
-            torch.save(model.state_dict(), f'{model_path}/GCNNet_{model_name}_acc{acc_val_final}.pth')
-            print(f'Model saved in {model_path}/GCNNet_{model_name}_acc{acc_val_final}.pth')
+            torch.save(model.state_dict(), f'{model_path}/GCNNet_{model_name}_acc{acc_val_final:.5f}.pth')
+            print(f'Model saved in {model_path}/GCNNet_{model_name}_acc{acc_val_final:.5f}.pth')
 
 def validation_loss(model, criterion, dataset):
     model.eval()
