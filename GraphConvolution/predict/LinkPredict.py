@@ -11,10 +11,10 @@ class GCNNet(nn.Module):
             input_dim: int, the dimension of input features
         '''
         super(GCNNet, self).__init__()
-        self.gcn1 = GraphConvolutioal(input_dim, 128)
-        self.gcn2 = GraphConvolutioal(128, 64)
+        self.gcn1 = GraphConvolutioal(input_dim, 128, bias=True)
+        self.gcn2 = GraphConvolutioal(128, 64, bias=True)
         # Define parameters
-        self.drop_rate = 0.2
+        self.drop_rate = 0
 
         
     def encoder(self, features, matrix_sparse):
@@ -41,5 +41,5 @@ class GCNNet(nn.Module):
         pass
     
     def forward(self, feaatures, matrix_sparse, positive_edge_pairs, negative_edge_pairs):
-        result = self.decode(self.encode(feaatures, matrix_sparse), positive_edge_pairs, negative_edge_pairs)
+        result = self.decoder(self.encoder(feaatures, matrix_sparse), positive_edge_pairs, negative_edge_pairs)
         return result

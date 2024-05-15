@@ -10,7 +10,7 @@ class Recorder:
         self.log_path = os.path.join(current_path, 'logs')
         self.daytime = time.strftime('%m%d-%H%M')
     
-    def Plot_loss(self, epochs, array_train_loss, array_val_loss, 
+    def Plot_loss_auc(self, epochs, array_train_loss, array_val_loss, 
                   array_train_auc, array_val_auc, array_lr,
                   origial_dataset_name):
         '''

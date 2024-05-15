@@ -30,8 +30,6 @@ class DataProcessor:
         '''
         self.dataset = dataset
         self._data = self.load_data_edge_pairs()
-        self.num_nodes = 0
-        self.num_edges = 0
         
     def load_data_edge_pairs(self):
         current_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
@@ -59,8 +57,9 @@ class DataProcessor:
         for i in range(raw_data_cite.shape[0]):
             edge_pairs.append([index_dict[raw_data_cite.iloc[i, 0]], index_dict[raw_data_cite.iloc[i, 1]]])
             edge_pairs.append([index_dict[raw_data_cite.iloc[i, 1]], index_dict[raw_data_cite.iloc[i, 0]]])
-        edge_pairs = np.array(edge_pairs).T
+        edge_pairs = np.array(edge_pairs)
         print("edge_pairs:", edge_pairs.shape)
+        self.num_edges = edge_pairs.shape[0]
         
         # construct adjacency matrix
         Matrix_adjacency = np.zeros((self.num_nodes, self.num_nodes))
@@ -89,9 +88,9 @@ class DataProcessor:
         index_test = index[num_train + num_val:]
         
         # generate vector
-        train_mask = np.zeros(self.num_nodes, dtype=bool)
-        val_mask = np.zeros(self.num_nodes, dtype=bool)
-        test_mask = np.zeros(self.num_nodes, dtype=bool)
+        train_mask = np.zeros(self.num_edges, dtype=bool)
+        val_mask = np.zeros(self.num_edges, dtype=bool)
+        test_mask = np.zeros(self.num_edges, dtype=bool)
         train_mask[index_train] = True
         val_mask[index_val] = True
         test_mask[index_test] = True
@@ -104,7 +103,7 @@ class DataProcessor:
         Output:
             L: scipy.sparse.coo_matrix, the renormalized matrix
         '''
-        Matrix = self._data.Matrix_sparse + sp.eye(self.num_codes) # A + I
+        Matrix = self._data.Matrix_sparse + sp.eye(self.num_nodes) # A + I
         degree = np.array(Matrix.sum(1))
         degree = np.power(degree, -0.5)
         degree_hat = sp.diags(degree.flatten())
@@ -144,5 +143,3 @@ class DataProcessor:
         
         
         
-        
-dataload = DataProcessor()
