@@ -12,7 +12,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print("device:" + device.type)
 
 dataset = DataProcessor('citeseer')
-model = GCNNet(dataset._data.features.shape[1]).to(device)
+model = GCNNet(dataset._data.features.shape[1], drop_rate=0.2).to(device)
 criterion = torch.nn.CrossEntropyLoss().to(device)
 optimizer = torch.optim.Adam(model.parameters(), lr=Learning_rate, weight_decay=Weight_decay)
 shceduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, 

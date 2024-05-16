@@ -12,7 +12,7 @@ class GCNNet(nn.Module):
         '''
         super(GCNNet, self).__init__()
         # Define parameters
-        self.drop_rate = 0
+        self.drop_rate = drop_rate
         self.PairNorm = False
         self.bias = False
         self.gcn1 = GraphConvolutioal(input_dim, 16, drop_rate=self.drop_rate, PairNorm=self.PairNorm, bias=self.bias)

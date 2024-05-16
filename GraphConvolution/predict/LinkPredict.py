@@ -5,14 +5,14 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from ConvolutionalLayer import GraphConvolutioal
 
 class GCNNet(nn.Module):
-    def __init__(self, input_dim):
+    def __init__(self, input_dim, drop_rate=0):
         '''
         Input:
             input_dim: int, the dimension of input features
         '''
         super(GCNNet, self).__init__()
         # Define parameters
-        self.drop_rate = 0
+        self.drop_rate = drop_rate
         self.PairNorm = True
         self.bias = True
         self.gcn1 = GraphConvolutioal(input_dim, 128, drop_rate=self.drop_rate, PairNorm=self.PairNorm, bias=self.bias)

@@ -11,8 +11,8 @@ Epochs = 100
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print("device:" + device.type)
 
-dataset = DataProcessor('cora')
-model = GCNNet(dataset._data.features.shape[1]).to(device)
+dataset = DataProcessor('citeseer')
+model = GCNNet(dataset._data.features.shape[1], drop_rate=0).to(device)
 criterion = torch.nn.functional.binary_cross_entropy_with_logits
 optimizer = torch.optim.Adam(model.parameters(), lr=Learning_rate, weight_decay=Weight_decay)
 shceduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=10, 
