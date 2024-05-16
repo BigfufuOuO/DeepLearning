@@ -6,10 +6,10 @@ from TrainModel import test_acc
 # load model
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-dataset_name = 'cora'
+dataset_name = 'citeseer'
 dataset = DataProcessor(dataset_name)
 torch_dataset = dataset.Transform_Data()
-model = GCNNet(dataset._data.features.shape[1]).to(device)
+model = GCNNet(dataset._data.features.shape[1], drop_rate=0).to(device)
 filenames = os.listdir(os.path.join(os.path.dirname(__file__), 'models'))
 maxacc = 0
 for filename in filenames: 

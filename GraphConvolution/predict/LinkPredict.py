@@ -15,8 +15,8 @@ class GCNNet(nn.Module):
         self.drop_rate = 0
         self.PairNorm = True
         self.bias = True
-        self.gcn1 = GraphConvolutioal(input_dim, 256, drop_rate=self.drop_rate, PairNorm=self.PairNorm, bias=self.bias)
-        self.gcn2 = GraphConvolutioal(256, 64, drop_rate=self.drop_rate, PairNorm=self.PairNorm, bias=self.bias)
+        self.gcn1 = GraphConvolutioal(input_dim, 128, drop_rate=self.drop_rate, PairNorm=self.PairNorm, bias=self.bias)
+        self.gcn2 = GraphConvolutioal(128, 64, drop_rate=self.drop_rate, PairNorm=self.PairNorm, bias=self.bias)
         
 
         
