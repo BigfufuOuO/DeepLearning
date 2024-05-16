@@ -49,10 +49,11 @@ def train_model(epochs, model, criterion, optimizer, scheduler, dataset, origial
     learning_rate = []
     
     # start training
-    model.train()
+    
     # process bar
     process_bar = tqdm(total=epochs, position=0, leave=True, ncols=100)
     for epoch in range(epochs):
+        model.train()
         output = model(dataset.features, dataset.Matrix_sparse)
         # supervise training
         train_mask_output = output[dataset.train_mask]

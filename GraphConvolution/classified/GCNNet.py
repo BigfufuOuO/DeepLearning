@@ -1,5 +1,7 @@
 
 import torch.nn as nn
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from ConvolutionalLayer import GraphConvolutioal
 
 class GCNNet(nn.Module):

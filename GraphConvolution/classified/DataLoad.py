@@ -31,7 +31,7 @@ class DataProcessor:
         self._data = self.load_data_adjacency()
 
     def load_data_adjacency(self):
-        current_path = os.path.abspath(os.path.dirname(__file__))
+        current_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
         data_path = os.path.join(current_path, 'data/')
         data_path = os.path.join(data_path, self.dataset + '/' + self.dataset)
 

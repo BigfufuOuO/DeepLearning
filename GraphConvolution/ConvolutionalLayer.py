@@ -44,7 +44,7 @@ class GraphConvolutioal(nn.Module):
             H(l+1) = A * H(l) * W(l) + b(l), where A is could be renormalized.
         '''
         matrix_sparse = self.Drop_edge(drop_rate, matrix_sparse) # DropEdge
-        # features = self.Pair_Norm(features) # PairNorm
+        features = self.Pair_Norm(features) # PairNorm
         output = torch.mm(features, self.weight) # H * W
         output = torch.sparse.mm(matrix_sparse, output) # A * H * W
         if self.bias is not None:
