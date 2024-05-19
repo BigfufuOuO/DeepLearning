@@ -5,16 +5,19 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from ConvolutionalLayer import GraphConvolutioal
 
 class GCNNet(nn.Module):
-    def __init__(self, input_dim):
+    def __init__(self, input_dim, drop_rate=0):
         '''
         Input:
             input_dim: int, the dimension of input features
         '''
         super(GCNNet, self).__init__()
-        self.gcn1 = GraphConvolutioal(input_dim, 128, bias=True)
-        self.gcn2 = GraphConvolutioal(128, 64, bias=True)
         # Define parameters
-        self.drop_rate = 0
+        self.drop_rate = drop_rate
+        self.PairNorm = True
+        self.bias = True
+        self.gcn1 = GraphConvolutioal(input_dim, 128, drop_rate=self.drop_rate, PairNorm=self.PairNorm, bias=self.bias)
+        self.gcn2 = GraphConvolutioal(128, 64, drop_rate=self.drop_rate, PairNorm=self.PairNorm, bias=self.bias)
+        
 
         
     def encoder(self, features, matrix_sparse):
@@ -26,8 +29,8 @@ class GCNNet(nn.Module):
         Output:
             h: torch.Tensor, the output features. (classification result)
         '''
-        h = nn.functional.relu(self.gcn1(features, matrix_sparse, drop_rate=self.drop_rate))
-        h = self.gcn2(h, matrix_sparse, drop_rate=self.drop_rate)
+        h = nn.functional.relu(self.gcn1(features, matrix_sparse))
+        h = self.gcn2(h, matrix_sparse)
         return h
     
     def decoder(self, h, positive_edge_pairs, negative_edge_pairs):

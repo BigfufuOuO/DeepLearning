@@ -91,6 +91,8 @@ def train_model(epochs, model, criterion, optimizer, scheduler, torch_dataset, o
         array_train_auc.append(train_auc)
         array_val_auc.append(val_auc)
         process_bar.update(1)
+        
+        scheduler.step(val_loss)
         # scheduler.step(val_loss)
         learning_rate.append(optimizer.param_groups[0]['lr'])
     

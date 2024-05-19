@@ -5,7 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from ConvolutionalLayer import GraphConvolutioal
 
 class GCNNet(nn.Module):
-    def __init__(self, input_dim):
+    def __init__(self, input_dim, drop_rate=0.2):
         '''
         Input:
             input_dim: int, the dimension of input features
@@ -26,7 +26,12 @@ class GCNNet(nn.Module):
         # self.gcn7 = GraphConvolutioal(64, 16)
         # self.gcn8 = GraphConvolutioal(16, 7)
         # Define parameters
-        self.drop_rate = 0.2
+        self.drop_rate = drop_rate
+        self.PairNorm = False
+        self.bias = False
+        self.gcn1 = GraphConvolutioal(input_dim, 16, drop_rate=self.drop_rate, PairNorm=self.PairNorm, bias=self.bias)
+        self.gcn2 = GraphConvolutioal(16, 7, drop_rate=self.drop_rate, PairNorm=self.PairNorm, bias=self.bias)
+        
 
         
     def forward(self, features, matrix_sparse):
@@ -38,6 +43,7 @@ class GCNNet(nn.Module):
         Output:
             h: torch.Tensor, the output features. (classification result)
         '''
+<<<<<<< HEAD
         h = nn.functional.relu(self.gcn1(features, matrix_sparse, drop_rate=self.drop_rate))
         # h = nn.functional.relu(self.gcn2(h, matrix_sparse, drop_rate=self.drop_rate))
         # h = nn.functional.relu(self.gcn3(h, matrix_sparse, drop_rate=self.drop_rate))
@@ -46,4 +52,8 @@ class GCNNet(nn.Module):
         # h = nn.functional.relu(self.gcn6(h, matrix_sparse, drop_rate=self.drop_rate))
         # h = nn.functional.relu(self.gcn7(h, matrix_sparse, drop_rate=self.drop_rate))
         h = self.gcn2(h, matrix_sparse, drop_rate=self.drop_rate)
+=======
+        h = nn.functional.relu(self.gcn1(features, matrix_sparse))
+        h = self.gcn2(h, matrix_sparse)
+>>>>>>> 0ab828eaa8d43897a471ba2930e6c1d572e6e12e
         return h

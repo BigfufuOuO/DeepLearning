@@ -35,8 +35,8 @@ class DataProcessor:
         data_path = os.path.join(current_path, 'data/')
         data_path = os.path.join(data_path, self.dataset + '/' + self.dataset)
 
-        raw_data_content = pd.read_csv(data_path + '.content', sep='\t', header=None)
-        raw_data_cite = pd.read_csv(data_path + '.cites', sep='\t', header=None)
+        raw_data_content = pd.read_csv(data_path + '.content', sep='\t', header=None, low_memory=False)
+        raw_data_cite = pd.read_csv(data_path + '.cites', sep='\t', header=None, low_memory=False)
 
         # extract feature and label
         features = raw_data_content.iloc[:, 1:-1].values

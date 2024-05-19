@@ -36,8 +36,8 @@ class DataProcessor:
         data_path = os.path.join(current_path, 'data/')
         data_path = os.path.join(data_path, self.dataset + '/' + self.dataset)
         
-        raw_data_content = pd.read_csv(data_path + '.content', sep='\t', header=None)
-        raw_data_cite = pd.read_csv(data_path + '.cites', sep='\t', header=None)
+        raw_data_content = pd.read_csv(data_path + '.content', sep='\t', header=None, low_memory=False)
+        raw_data_cite = pd.read_csv(data_path + '.cites', sep='\t', header=None, low_memory=False)
 
         # extract feature and label
         features = raw_data_content.iloc[:, 1:-1].values
@@ -109,11 +109,11 @@ class DataProcessor:
         degree_hat = sp.diags(degree.flatten())
         return degree_hat.dot(Matrix).dot(degree_hat).tocoo()
     
-    def negative_sampling(self, positive_edge_pairs):
+    def negative_sampling(self, positive_edge_pairs, num_neg_rates=1):
         negative_edge_pairs = negative_sampling(
             edge_index=positive_edge_pairs,
             num_nodes=self.num_nodes,
-            num_neg_samples=positive_edge_pairs.shape[1]
+            num_neg_samples=int(positive_edge_pairs.shape[1] * num_neg_rates)
         )
         return negative_edge_pairs
     
