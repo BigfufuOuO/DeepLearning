@@ -120,7 +120,7 @@ def __init__(self, input_dim):
 其中，自环(在$L$上)指 $L=I +(D+I)^{-1/2} (A+I)  (D+I)^{-1/2}$，无自环(在$A$上)指 $L=D^{-1/2}A  D^{-1/2}$，自环(在$A$上)指$L=(D+I)^{-1/2} (A+I)  (D+I)^{-1/2}$
 在令$L=I +(D+I)^{-1/2} (A+I)  (D+I)^{-1/2}$时，出现了比较严重的过拟合现象。此外，在完全不加自环时，出现了很严重的振荡，即使此时使用早停模型的准确率也无法提高。![alt text](classified/figs/cora_loss_acc_0519-1840.png)
 ### Dropedge
-DropEdge即随机丢弃一些边，该操作在L上进行实现，即令 $L \leftarrow DropEdge(L)$，使用DropEdge可以一定程度减少过拟合现象，并且
+DropEdge即随机丢弃一些边，该操作在L上进行实现，即令 $L \leftarrow DropEdge(L)$，使用DropEdge可以一定程度减少过拟合现象，然而使用过多dropedge可能会导致准确率下降。
 
 ## 参考资料
 https://arxiv.org/pdf/1609.02907
