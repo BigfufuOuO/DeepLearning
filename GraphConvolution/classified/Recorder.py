@@ -19,7 +19,7 @@ class Recorder:
         '''
         plt.figure(figsize=(12, 12))
         epoch = range(1, epochs + 1)
-        plt.subplot(2, 2, 1)
+        plt.subplot(2, 1, 1)
         plt.plot(epoch, array_train_loss, label='Training Loss', color='blue', alpha=0.8)
         plt.plot(epoch, array_val_loss, label='Validation Loss', color='orange', alpha=0.8)
         plt.xlabel('Epoch')
@@ -27,7 +27,7 @@ class Recorder:
         plt.title('Training and Validation Loss')
         plt.legend()
         
-        plt.subplot(2, 2, 2)
+        plt.subplot(2, 1, 2)
         plt.plot(epoch, array_train_acc, label='Training Accuracy', color='blue', alpha=0.8)
         plt.plot(epoch, array_val_acc, label='Validation Accuracy', color='orange', alpha=0.8)
         plt.xlabel('Epoch')
@@ -35,12 +35,12 @@ class Recorder:
         plt.title('Training and Validation Accuracy')
         plt.legend()
         
-        plt.subplot(2, 2, 3)
-        plt.plot(epoch, array_lr, label='Learning Rate', color='blue', alpha=0.8)
-        plt.xlabel('Epoch')
-        plt.ylabel('Learning Rate')
-        plt.title('Learning Rate')
-        plt.legend()
+        # plt.subplot(2, 2, 3)
+        # plt.plot(epoch, array_lr, label='Learning Rate', color='blue', alpha=0.8)
+        # plt.xlabel('Epoch')
+        # plt.ylabel('Learning Rate')
+        # plt.title('Learning Rate')
+        # plt.legend()
         
         plt.savefig(f'{self.fig_path}/{origial_dataset_name}_loss_acc_{self.daytime}.png')
         
