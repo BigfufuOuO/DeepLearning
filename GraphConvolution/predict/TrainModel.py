@@ -81,7 +81,7 @@ def train_model(epochs, model, criterion, optimizer, scheduler, torch_dataset, o
         optimizer.step()
         
         # caculate accuracy
-        train_auc = roc_auc_score(true_lables.cpu().numpy(), output.detach().cpu().numpy())
+        train_auc = roc_auc_score(true_lables.cpu().numpy(), output.sigmoid().detach().cpu().numpy())
         val_loss, val_auc = validation_test(model, criterion, torch_dataset, original_dataset)
         
         

@@ -29,5 +29,5 @@ with torch.no_grad():
     output = model(torch_dataset.features, torch_dataset.Matrix_sparse, \
                      test_positive_edge_pairs, negative_edge_pairs)
     true_labels = generate_true_labels(test_positive_edge_pairs, negative_edge_pairs)
-    auc = roc_auc_score(true_labels.cpu().numpy(), output.cpu().numpy())
+    auc = roc_auc_score(true_labels.cpu().numpy(), output.sigmoid().cpu().numpy())
     print(f'Test AUC: {auc:.4f}')
