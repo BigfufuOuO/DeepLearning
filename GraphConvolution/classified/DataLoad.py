@@ -105,7 +105,7 @@ class DataProcessor:
     
     def Renormalization_trick(self):
         '''
-        Caculate L = D^(-1/2) (A + I) D^(-1/2)
+        Caculate L = I+D^(-1/2) (A + I) D^(-1/2)
         Output:
             L: scipy.sparse.coo_matrix, the renormalized matrix
         '''
@@ -113,7 +113,9 @@ class DataProcessor:
         degree = np.array(Matrix.sum(1))
         degree = np.power(degree, -0.5)
         degree_hat = sp.diags(degree.flatten())
-        return degree_hat.dot(Matrix).dot(degree_hat).tocoo()
+        result = degree_hat.dot(Matrix).dot(degree_hat)
+        result = result + sp.eye(self.num_codes)
+        return result.tocoo()
     
     def Transform_Data(self):
         Normalized_feature = self._data.features / self._data.features.sum(1, keepdims=True)
@@ -126,7 +128,8 @@ class DataProcessor:
         tensor_val_mask = torch.from_numpy(self._data.val_mask).to(device)
         tensor_test_mask = torch.from_numpy(self._data.test_mask).to(device)
         
-        Normalized_matrix_sparse = self.Renormalization_trick()
+        #Normalized_matrix_sparse = self.Renormalization_trick()
+        Normalized_matrix_sparse = self._data.Matrix_sparse
         
         # construct sparse matrix tensor
         indices = torch.from_numpy(np.vstack((Normalized_matrix_sparse.row, Normalized_matrix_sparse.col)).astype(np.int64))
